@@ -14,4 +14,6 @@ func main() {
 
 		return spam.IsSpam(args[0].String())
 	}))
+
+	<-make(chan bool)
 }
