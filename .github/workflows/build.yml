@@ -1,7 +1,4 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
-name: Go
+name: Build & Deploy
 on:
   push:
     branches: ["main"]
@@ -25,12 +22,6 @@ jobs:
           go-version: "1.21"
           cache-dependency-path: go.sum
 
-      - name: Cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/go-build
-          key: go-build-cache
-
       - name: Build
         run: |
           mkdir dist
@@ -41,4 +32,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_KEY }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=is-comment-spam-wasm
+          command: pages deploy dist --project-name=is-comment-spam-wasm --commit-dirty=true
