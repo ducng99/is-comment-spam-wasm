@@ -1,0 +1,3 @@
+[submodule "is-comment-spam"]
+	path = is-comment-spam
+	url = https://github.com/ducng99/is-comment-spam
