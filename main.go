@@ -3,7 +3,7 @@ package main
 import (
 	"syscall/js"
 
-	spam "github.com/ducng99/is-comment-spam"
+	spam "is-comment-spam-wasm/iscommentspam"
 )
 
 func main() {
